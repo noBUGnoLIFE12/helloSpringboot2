@@ -3,6 +3,7 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
@@ -18,14 +19,15 @@ public class UserIservice implements UserService {
     private UserMapper userMapper;
     @Resource
     private MessageSource messageSource;
+    private Locale locale = Locale.getDefault();
     public List<String> getResult (UserForm userForm){
         IUser user = userMapper.queryUser(userForm.getAccountId()); 
         List<String> errorlist = new ArrayList<String>(); 
         if (user == null) { 
-            errorlist.add("login.message.accountId.error"); 
+            errorlist.add(messageSource.getMessage("login.message.accountId.error", null, locale)); 
             } 
         else if (!user.getPassword().equals(userForm.getPassword())) { 
-            errorlist.add("login.message.password.error");
+            errorlist.add(messageSource.getMessage("login.message.password.error", null, locale));
         }
     return errorlist;
     }

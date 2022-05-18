@@ -9,11 +9,9 @@ public class UserForm {
 	@NotEmpty(message="{login.error.accountId.notEmpty}")
     @Email(message="{login.error.accountId.isEmail}")
     private String accountId;
-	
     @NotEmpty(message="{login.error.password.notEmpty}")
     @Size(min=6,max=6, message="{login.error.password.length}")
     private String password;
-    
     public String getAccountId() {
         return accountId;
     }
