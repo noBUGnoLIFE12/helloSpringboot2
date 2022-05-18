@@ -19,7 +19,7 @@ import com.example.demo.form.UserForm;
 import com.example.demo.service.UserService;
 @Controller
 @ComponentScan({"service"})
-@MapperScan("mapper")
+@MapperScan("com.example.demo.mapper")
 public class Login {
     @Resource
     private UserService userService;
